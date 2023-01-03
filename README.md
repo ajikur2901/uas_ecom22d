@@ -1,6 +1,8 @@
 # uas_ecom22d
 source code untuk projek uas ecommerce 22D UMBY
 
+versi php yang direkomendasikan : 7.4
+
 command untuk clone dari git
 
 ``git clone https://github.com/ajikur2901/uas_ecom22d.git``
