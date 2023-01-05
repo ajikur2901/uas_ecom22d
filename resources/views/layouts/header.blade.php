@@ -22,6 +22,7 @@
                         aria-labelledby="topbarUserDropdown">
                         <li><a class="dropdown-item" href="{{URL::to('profil')}}">My Account</a></li>
                         <li><a class="dropdown-item" href="{{ URL::to('cart')}}">Cart</a></li>
+                        <li><a class="dropdown-item" href="{{ URL::to('order')}}">Order</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

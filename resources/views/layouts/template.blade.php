@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png')}}" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('css/shared/iconly.css')}}">
-
+    @yield('custom_css');
 </head>
 
 <body>
@@ -27,7 +27,7 @@
     <script src="{{ asset('js/bootstrap.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
     <script src="{{ asset('js/pages/horizontal-layout.js')}}"></script>
-
+    @yield('custom_js')
 </body>
 
 </html>

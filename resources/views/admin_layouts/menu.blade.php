@@ -69,6 +69,13 @@
                         <span>Produk</span>
                     </a>
                 </li>
+                
+                <li class="sidebar-item {{ request()->is('admin/order*') ? 'active' : '' }}">
+                    <a href="{{ URL::to('admin/order')}}" class='sidebar-link'>
+                        <i class="bi bi-inbox-fill"></i>
+                        <span>Order</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

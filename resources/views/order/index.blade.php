@@ -22,7 +22,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{URL::to('admin')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{URL::to('admin/kategori')}}">kategori</a></li>
+                            <li class="breadcrumb-item"><a href="{{URL::to('admin/order')}}">Order</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -35,42 +35,42 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ URL::to('admin/kategori/create')}}" class="btn btn-primary">
-                        <span class="bi bi-plus"></span> Tambah
-                    </a>
-                </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
                                 <th class="text-center">Action</th>
-                                <th class="text-center">Foto</th>
-                                <th class="text-center">Nama</th>
+                                <th class="text-center">User</th>
+                                <th class="text-center">Tanggal Order</th>
+                                <th class="text-center">Total Pembayaran</th>
+                                <th class="text-center">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (isset($list_kategori) && !empty($list_kategori))
-                                @foreach ($list_kategori as $kategori)
+                            @if (isset($list_order) && !empty($list_order))
+                                @foreach ($list_order as $order)
                                     <tr>
                                         <td class="text-center">
-                                            <a href="{{ URL::to('admin/kategori/'.$kategori['id'].'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Edit Data">
+                                            <a href="{{ URL::to('admin/mahasiswa/'.$mahasiswa['id'].'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Edit Data">
                                                 <span class="bi bi-pencil-fill"></span>
                                             </a>
-                                            <a href="#" data-bs-toggle="tooltip" onclick="event.preventDefault(); document.getElementById('del-{{ $kategori['id']}}').submit();" data-bs-placement="bottom" data-bs-original-title="Hapus Data">
+                                            <a href="#" data-bs-toggle="tooltip" onclick="event.preventDefault(); document.getElementById('del-{{ $mahasiswa['id']}}').submit();" data-bs-placement="bottom" data-bs-original-title="Hapus Data">
                                                 <span class="bi bi-trash-fill text-danger"></span>
                                             </a>
-                                            <form action="{{ URL::to('admin/kategori/'.$kategori['id'])}}" method="post" id="del-{{ $kategori['id']}}">
+                                            <form action="{{ URL::to('admin/mahasiswa/'.$mahasiswa['id'])}}" method="post" id="del-{{ $mahasiswa['id']}}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td>
-                                            @if (!empty($kategori['foto']))
-                                            <img src="{{$kategori['foto']}}" alt="{{$kategori['nama']}}">
-                                            @endif
-                                        </td>
-                                        <td>{{$kategori['nama']}}</td>
+                                        <td class="text-center">{{$mahasiswa['nim']}}</td>
+                                        <td>{{$mahasiswa['nama']}}</td>
+                                        <td>{{$mahasiswa['tmp_lahir']}}</td>
+                                        <td>{{date('d/m/Y',strtotime($mahasiswa['tgl_lahir']))}}</td>
+                                        <td>{{$mahasiswa['alamat']}}</td>
+                                        <td>{{$mahasiswa['prodi']}}</td>
+                                        <td>{{$mahasiswa['catatan']}}</td>
+                                        <td>{{date('d/m/Y H:i:s',strtotime($mahasiswa['created_at']))}}</td>
+                                        <td>{{date('d/m/Y H:i:s',strtotime($mahasiswa['updated_at']))}}</td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -80,6 +80,4 @@
             </div>
         </section>
     </div>
-    
-
 @endsection

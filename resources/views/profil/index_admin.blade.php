@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 <form method="POST" action="{{ URL::to('admin/profil/update/'.$user->id) }}">
-                    @method('PATCH') 
+                    @method('PATCH')
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
                         <input type="text" class="form-control  @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus>

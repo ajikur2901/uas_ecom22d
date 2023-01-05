@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,8 +21,11 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 
-Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
-Route::get('/profil/update/{id}', [ProfilController::class, 'update'])->name('profil.update');
+Route::get('/profil', [ProfilController::class, 'index'])
+    ->name('profil.index');
+
+Route::patch('/profil/update/{id}', [ProfilController::class, 'update'])
+    ->name('profil.update');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])
@@ -37,6 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
         ->name('admin')->middleware('role:admin');
+
+    Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
+        ->name('admin.order.index')->middleware('role:admin');
+    Route::patch('/order/update/{id}', [\App\Http\Controllers\OrderController::class, 'update'])
+        ->name('admin.order.update')->middleware('role:admin');
 
     Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
         ->name('admin')->middleware('role:admin');
