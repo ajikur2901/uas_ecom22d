@@ -19,18 +19,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
-// Route::get('/profil/update/{id}', [ProfilController::class, 'update']);
-Route::resource('/profil', ProfilController::class);
+
+Route::get('/profil', [ProfilController::class, 'index'])->name('profil.index');
+Route::get('/profil/update/{id}', [ProfilController::class, 'update'])->name('profil.update');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])
         ->name('admin')->middleware('role:admin');
+
     Route::get('/profil', [\App\Http\Controllers\ProfilController::class, 'index'])
-        ->name('admin')->middleware('role:admin');
+        ->name('admin.profil.index')->middleware('role:admin');
+    Route::patch('/profil/update/{id}', [\App\Http\Controllers\ProfilController::class, 'update'])
+        ->name('admin.profil.update')->middleware('role:admin');
+
     Route::get('/kategori', [\App\Http\Controllers\KategoriController::class, 'index'])
         ->name('admin')->middleware('role:admin');
+
     Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
         ->name('admin')->middleware('role:admin');
+
     Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
         ->name('admin')->middleware('role:admin');
 });

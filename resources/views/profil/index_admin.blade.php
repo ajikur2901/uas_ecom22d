@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('admin_layouts.template')
 
 @section('content')
     <div class="content-wrapper container">
@@ -14,7 +14,7 @@
                         <p>{{ $message }}</p>
                     </div>
                 @endif
-                <form method="POST" action="{{ URL::to('profil/update/'.$user->id) }}">
+                <form method="POST" action="{{ URL::to('admin/profil/update/'.$user->id) }}">
                     @method('PATCH') 
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">

@@ -13,15 +13,15 @@ class ProfilController extends Controller
         $data = [
             'user' => User::findOrFail(Auth::user()->id)
         ];
-        return view('profil.index', $data);
+        return Auth::user()->role == 'admin' ?
+            view('profil.index_admin', $data) :
+            view('profil.index', $data);
     }
 
     public function update(Request $request, $id)
     {
-        echo "Tes";
-        exit();
         $this->validate($request, [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => 'required|string|max:255|unique:users,email,' . $id,
             'phone' => ['required', 'string', 'max:20'],
             'alamat' => ['string', 'nullable'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
@@ -29,10 +29,20 @@ class ProfilController extends Controller
         $user = User::findOrFail($id);
 
         $inputan = $request->all();
+
+        if (empty($inputan['password'])) {
+            unset($inputan['password']);
+            unset($inputan['password_confirmation']);
+        }
+
         if ($user->update($inputan)) {
-            return redirect()->route('profil.index')->with('success', 'Data berhasil diupdate');
+            return redirect()
+                ->route('profil.index')
+                ->with('success', 'Data berhasil diupdate');
         } else {
-            return redirect()->route('profil.index')->with('error', 'Data gagal diupdate');
+            return redirect()
+                ->route('profil.index')
+                ->with('error', 'Data gagal diupdate');
         }
     }
 }
