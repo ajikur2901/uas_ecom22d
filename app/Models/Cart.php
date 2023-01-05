@@ -16,4 +16,14 @@ class Cart extends Model
         'produk_id',
         'jumlah'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }
