@@ -18,7 +18,7 @@ copy file .env.example dengan nama .env
 
 ``php artisan migrate``
 
-``php artisan optimise:clear``
+``php artisan optimize:clear``
 
 ``php artisan key:generate``
 
