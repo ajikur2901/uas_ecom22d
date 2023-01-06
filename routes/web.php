@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderUserController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 
 Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart/checkout', [CartController::class, 'checkout']);
+Route::delete('/cart/delete/{id}', [CartController::class, 'delete']);
+
+Route::get('/order', [OrderUserController::class, 'index']);
 
 Route::get('/profil', [ProfilController::class, 'index'])
     ->name('profil.index');

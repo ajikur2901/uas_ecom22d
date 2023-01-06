@@ -26,4 +26,17 @@ class Cart extends Model
     {
         return $this->belongsTo(Produk::class);
     }
+
+    public static function getTotalPrice($userId)
+    {
+        $carts = self::where('user_id', $userId)->get();
+        $result = 0;
+        if (!empty($carts)) {
+            foreach ($carts as $cart) {
+                $result += $cart->jumlah * $cart->produk->harga;
+            }
+        }
+
+        return $result;
+    }
 }

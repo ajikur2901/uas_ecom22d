@@ -14,6 +14,7 @@ class OrderDetail extends Model
     protected $fillable = [
         'order_id',
         'produk_id',
-        'jumlah'
+        'jumlah',
+        'harga_satuan'
     ];
 }
