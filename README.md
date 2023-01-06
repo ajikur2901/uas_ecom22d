@@ -7,7 +7,9 @@ command untuk clone dari git
 
 ``git clone https://github.com/ajikur2901/uas_ecom22d.git``
 
-setelah clone selesai, jalankan
+setelah clone selesai masuk ke folder project nya, 
+
+jalankan
 
 ``composer install``
 
