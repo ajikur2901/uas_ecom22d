@@ -13,7 +13,8 @@ jalankan
 
 ``composer install``
 
-lalu 
+lalu buka folder dengan vs code
+copy file .env.example dengan nama .env
 
 ``php artisan migrate``
 
