@@ -13,7 +13,7 @@ class OrderController extends Controller
         $data = [
             'title' => 'Order',
             'deskripsi' => 'Data Order Customer',
-            'orders' => Order::all()
+            'list_order' => Order::all()
         ];
 
         return view('order.index', $data);

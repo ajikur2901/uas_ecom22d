@@ -51,26 +51,26 @@
                                 @foreach ($list_order as $order)
                                     <tr>
                                         <td class="text-center">
-                                            <a href="{{ URL::to('admin/mahasiswa/'.$mahasiswa['id'].'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Edit Data">
+                                            <a href="{{ URL::to('admin/order/'.$order['id'].'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Edit Data">
                                                 <span class="bi bi-pencil-fill"></span>
                                             </a>
                                             <a href="#" data-bs-toggle="tooltip" onclick="event.preventDefault(); document.getElementById('del-{{ $mahasiswa['id']}}').submit();" data-bs-placement="bottom" data-bs-original-title="Hapus Data">
                                                 <span class="bi bi-trash-fill text-danger"></span>
                                             </a>
-                                            <form action="{{ URL::to('admin/mahasiswa/'.$mahasiswa['id'])}}" method="post" id="del-{{ $mahasiswa['id']}}">
+                                            <form action="{{ URL::to('admin/order/'.$order['id'])}}" method="post" id="del-{{ $mahasiswa['id']}}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
                                         </td>
-                                        <td class="text-center">{{$mahasiswa['nim']}}</td>
-                                        <td>{{$mahasiswa['nama']}}</td>
-                                        <td>{{$mahasiswa['tmp_lahir']}}</td>
-                                        <td>{{date('d/m/Y',strtotime($mahasiswa['tgl_lahir']))}}</td>
-                                        <td>{{$mahasiswa['alamat']}}</td>
-                                        <td>{{$mahasiswa['prodi']}}</td>
-                                        <td>{{$mahasiswa['catatan']}}</td>
-                                        <td>{{date('d/m/Y H:i:s',strtotime($mahasiswa['created_at']))}}</td>
-                                        <td>{{date('d/m/Y H:i:s',strtotime($mahasiswa['updated_at']))}}</td>
+                                        <td class="text-center">{{$order['nim']}}</td>
+                                        <td>{{$order['nama']}}</td>
+                                        <td>{{$order['tmp_lahir']}}</td>
+                                        <td>{{date('d/m/Y',strtotime($order['tgl_lahir']))}}</td>
+                                        <td>{{$order['alamat']}}</td>
+                                        <td>{{$order['prodi']}}</td>
+                                        <td>{{$order['catatan']}}</td>
+                                        <td>{{date('d/m/Y H:i:s',strtotime($order['created_at']))}}</td>
+                                        <td>{{date('d/m/Y H:i:s',strtotime($order['updated_at']))}}</td>
                                     </tr>
                                 @endforeach
                             @endif
