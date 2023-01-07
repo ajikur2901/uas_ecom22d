@@ -59,8 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/order/{id}/cancel', [\App\Http\Controllers\OrderController::class, 'cancel'])
         ->name('admin.order.cancel')->middleware('role:admin');
 
-    Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
-        ->name('admin')->middleware('role:admin');
+    Route::resource('/user', \App\Http\Controllers\UserController::class)
+        ->middleware('role:admin');
 });
 
 Auth::routes();
