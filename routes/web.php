@@ -52,8 +52,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
         ->name('admin.order.index')->middleware('role:admin');
-    Route::patch('/order/update/{id}', [\App\Http\Controllers\OrderController::class, 'update'])
-        ->name('admin.order.update')->middleware('role:admin');
+    Route::get('/order/{id}/kirim', [\App\Http\Controllers\OrderController::class, 'kirim'])
+        ->name('admin.order.kirim')->middleware('role:admin');
+    Route::get('/order/{id}/selesai', [\App\Http\Controllers\OrderController::class, 'selesai'])
+        ->name('admin.order.selesai')->middleware('role:admin');
+    Route::get('/order/{id}/cancel', [\App\Http\Controllers\OrderController::class, 'cancel'])
+        ->name('admin.order.cancel')->middleware('role:admin');
 
     Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
         ->name('admin')->middleware('role:admin');

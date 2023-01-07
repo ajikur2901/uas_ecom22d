@@ -17,4 +17,9 @@ class OrderDetail extends Model
         'jumlah',
         'harga_satuan'
     ];
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }
