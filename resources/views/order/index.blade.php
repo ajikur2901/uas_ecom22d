@@ -42,7 +42,6 @@
                                 <th class="text-center">Action</th>
                                 <th class="text-center">User</th>
                                 <th class="text-center">Tanggal Order</th>
-                                <th class="text-center">Total Pembayaran</th>
                                 <th class="text-center">Status</th>
                             </tr>
                         </thead>
@@ -51,26 +50,25 @@
                                 @foreach ($list_order as $order)
                                     <tr>
                                         <td class="text-center">
-                                            <a href="{{ URL::to('admin/order/'.$order['id'].'/edit')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Edit Data">
-                                                <span class="bi bi-pencil-fill"></span>
-                                            </a>
-                                            <a href="#" data-bs-toggle="tooltip" onclick="event.preventDefault(); document.getElementById('del-{{ $mahasiswa['id']}}').submit();" data-bs-placement="bottom" data-bs-original-title="Hapus Data">
-                                                <span class="bi bi-trash-fill text-danger"></span>
-                                            </a>
-                                            <form action="{{ URL::to('admin/order/'.$order['id'])}}" method="post" id="del-{{ $mahasiswa['id']}}">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
+                                            @if ($order->status == "baru")
+                                                <a href="{{ URL::to('admin/order/'.$order['id'].'/kirim')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Dikirim">
+                                                    <span class="bi bi-send-fill text-primary"></span>
+                                                </a>
+                                            @endif
+                                            @if ($order->status == "dikirim")
+                                                <a href="{{ URL::to('admin/order/'.$order['id'].'/selesai')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Selesai">
+                                                    <span class="bi bi-check-circle-fill text-success"></span>
+                                                </a>
+                                            @endif
+                                            @if ($order->status == "baru")
+                                                <a href="{{ URL::to('admin/order/'.$order['id'].'/cancel')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Dibatalkan">
+                                                    <span class="bi bi-send-fill text-danger"></span>
+                                                </a>
+                                            @endif
                                         </td>
-                                        <td class="text-center">{{$order['nim']}}</td>
-                                        <td>{{$order['nama']}}</td>
-                                        <td>{{$order['tmp_lahir']}}</td>
-                                        <td>{{date('d/m/Y',strtotime($order['tgl_lahir']))}}</td>
-                                        <td>{{$order['alamat']}}</td>
-                                        <td>{{$order['prodi']}}</td>
-                                        <td>{{$order['catatan']}}</td>
-                                        <td>{{date('d/m/Y H:i:s',strtotime($order['created_at']))}}</td>
-                                        <td>{{date('d/m/Y H:i:s',strtotime($order['updated_at']))}}</td>
+                                        <td class="text-center">{{$order->user->name}}</td>
+                                        <td>{{date('d/m/Y H:i:s',strtotime($order->created_at))}}</td>
+                                        <td>{{$order->status}}</td>
                                     </tr>
                                 @endforeach
                             @endif
