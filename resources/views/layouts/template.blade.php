@@ -16,7 +16,7 @@
 
 <body>
     <div id="app">
-        <div id="main" class="layout-horizontal">
+        <div id="main" class="main-layout layout-horizontal">
             @include('layouts.header')
 
             @yield('content')
