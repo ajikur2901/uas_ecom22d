@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
+Route::get('/produk', [HomeController::class, 'produk']);
+Route::get('/produkdetail', [HomeController::class, 'produkdetail']);
 
 Route::get('/cart', [CartController::class, 'index']);
 Route::get('/cart/checkout', [CartController::class, 'checkout']);
@@ -47,16 +49,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/kategori', [\App\Http\Controllers\KategoriController::class, 'index'])
         ->name('admin')->middleware('role:admin');
 
-    Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
-        ->name('admin')->middleware('role:admin');
+    //Tambahan route package Produk
+    Route::resource('/produk', \App\Http\Controllers\ProdukController::class);
+    // Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
+    //     ->name('admin')->middleware('role:admin');
+    // Route::patch('/produk/create/{id}', [\App\Http\Controllers\ProdukController::class, 'create'])
+    //     ->name('admin.produk.create')->middleware('role:admin');
 
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
         ->name('admin.order.index')->middleware('role:admin');
-    Route::patch('/order/update/{id}', [\App\Http\Controllers\OrderController::class, 'update'])
-        ->name('admin.order.update')->middleware('role:admin');
+    Route::get('/order/{id}/kirim', [\App\Http\Controllers\OrderController::class, 'kirim'])
+        ->name('admin.order.kirim')->middleware('role:admin');
+    Route::get('/order/{id}/selesai', [\App\Http\Controllers\OrderController::class, 'selesai'])
+        ->name('admin.order.selesai')->middleware('role:admin');
+    Route::get('/order/{id}/cancel', [\App\Http\Controllers\OrderController::class, 'cancel'])
+        ->name('admin.order.cancel')->middleware('role:admin');
 
-    Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
-        ->name('admin')->middleware('role:admin');
+    Route::resource('/user', \App\Http\Controllers\UserController::class)
+        ->middleware('role:admin');
 });
 
 Auth::routes();
