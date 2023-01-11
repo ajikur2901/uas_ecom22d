@@ -13,8 +13,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-lg-0">
                 <li class="nav-item d-none d-sm-inline-block">
-                        <a href="/" class="nav-link">Home</a>
-                        </li>
                     <li class="nav-item dropdown me-1">
                         <a class="nav-link active dropdown-toggle text-gray-600" href="#"
                             data-bs-toggle="dropdown" aria-expanded="false">

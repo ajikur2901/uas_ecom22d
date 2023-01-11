@@ -44,8 +44,8 @@
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th class="text-center">Action</th>
-                                <th class="text-center">Foto</th>
+                                <th class="text-center" style="max-width: 50px">Action</th>
+                                <th class="text-center" style="max-width: 250px;">Foto</th>
                                 <th class="text-center">Nama</th>
                             </tr>
                         </thead>
@@ -67,7 +67,7 @@
                                         </td>
                                         <td>
                                             @if (!empty($kategori['foto']))
-                                            <img src="{{$kategori['foto']}}" alt="{{$kategori['nama']}}">
+                                            <img src="{{asset('images/'.$kategori->foto)}}" alt="{{$kategori['nama']}}" class="img-fluid" style="max-width: 200px">
                                             @endif
                                         </td>
                                         <td>{{$kategori['nama']}}</td>

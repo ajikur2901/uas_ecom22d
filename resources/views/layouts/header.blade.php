@@ -2,7 +2,7 @@
     <div class="header-top">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><img src="{{ asset('images/logo/logo.svg')}}" alt="Logo"></a>
+                <a href="index.html"><img src="{{ asset('images/logo/logo-jat.jpg')}}" alt="Logo"></a>
             </div>
             <div class="header-top-right">
                 @if (Auth::check())

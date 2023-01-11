@@ -36,7 +36,7 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ URL::to('admin/produk/create')}}" class="btn btn-primary">
+                    <a href="{{ URL::to('admin/kategori/create')}}" class="btn btn-primary">
                         <span class="bi bi-plus"></span> Tambah
                     </a>
                 </div>
@@ -44,157 +44,16 @@
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th class="text-center">No</th>
-                                <th class="text-center">Gambar</th>
-                                <th class="text-center">Kode</th>
+                                <th class="text-center" style="max-width: 50px;">Action</th>
+                                <th class="text-center" style="max-width: 250px;">Foto</th>
                                 <th class="text-center">Nama</th>
+                                <th class="text-center">Kategori</th>
                                 <th class="text-center">Stok</th>
-                                <th class="text-center">Action</th>
-                                <th></th>   
+                                <th class="text-center">Harga (Rupiah)</th>
                             </tr>
                         </thead>
                         <tbody>
-                  <tr>
-                  <td>1</td>
-                  <td>
-                    <img src="{{ asset('images/slide1.jpeg') }}" alt="produk 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Assalam-1</td>
-                  <td>Baju Mahal</td>
-                  <td>12 Produk</td>
-                  <td>
-                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Detail
-                    </a>
-                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Edit
-                    </a>
-                    <button class="btn btn-sm btn-danger mb-2">
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <img src="{{ asset('images/slide2.jpeg') }}" alt="produk 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Assalam-2</td>
-                  <td>Baju bagus</td>
-                  <td>20 Produk</td>
-                  <td>
-                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Detail
-                    </a>
-                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Edit
-                    </a>
-                    <button class="btn btn-sm btn-danger mb-2">
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <img src="{{ asset('images/slide3.jpeg') }}" alt="produk 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Assalam-3</td>
-                  <td>Baju Bekas</td>
-                  <td>20 Produk</td>
-                  <td>
-                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Detail
-                    </a>
-                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Edit
-                    </a>
-                    <button class="btn btn-sm btn-danger mb-2">
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>
-                    <img src="{{ asset('images/slide4.jpeg') }}" alt="produk 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Assalam-4</td>
-                  <td>Alat Hiking</td>
-                  <td>20 Produk</td>
-                  <td>
-                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Detail
-                    </a>
-                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Edit
-                    </a>
-                    <button class="btn btn-sm btn-danger mb-2">
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>
-                    <img src="{{ asset('images/slide5.jpeg') }}" alt="produk 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
-                  </td>
-                  <td>Assalam-4</td>
-                  <td>Alat Hiking</td>
-                  <td>20 Produk</td>
-                  <td>
-                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Detail
-                    </a>
-                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
-                      Edit
-                    </a>
-                    <button class="btn btn-sm btn-danger mb-2">
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                            <!-- @if (isset($list_produk) && !empty($list_produk))
+                            @if (isset($list_produk) && !empty($list_produk))
                                 @foreach ($list_produk as $produk)
                                     <tr>
                                         <td class="text-center">
@@ -211,7 +70,7 @@
                                         </td>
                                         <td>
                                             @if (!empty($produk['foto']))
-                                                <img src="{{$produk['foto']}}" alt="{{$produk['nama']}}">
+                                                <img src="{{$produk->foto ? asset('images/'.$produk->foto) : asset('images/default-img.png')}}" alt="{{$produk['nama']}}" class="img-fluid" style="max-width: 200px">
                                             @endif
                                         </td>
                                         <td>{{$produk['nama']}}</td>
@@ -220,7 +79,7 @@
                                         <td class="text-end">{{number_format($produk['harga'],2,',','.') }}</td>
                                     </tr>
                                 @endforeach
-                            @endif -->
+                            @endif
                         </tbody>
                     </table>
                 </div>
