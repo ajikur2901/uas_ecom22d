@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 
@@ -51,5 +52,22 @@ class HomeController extends Controller
             'produk' => Produk::findOrFail($id)
         ];
         return view('home.produkdetail', $data);
+    }
+
+    public function kategori()
+    {
+        $data = [
+            'kategori' => Kategori::all()
+        ];
+        return view('home.kategori', $data);
+    }
+
+    public function kategoridetail($nama)
+    {
+        $data = [
+            'produk' => Produk::where('kategori', $nama)->get(),
+            'kategori' => $nama
+        ];
+        return view('home.kategoridetail', $data);
     }
 }

@@ -24,6 +24,8 @@ Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/produk', [HomeController::class, 'produk']);
 Route::get('/produk/{id}', [HomeController::class, 'produkdetail']);
+Route::get('/kategori', [HomeController::class, 'kategori']);
+Route::get('/kategori/{nama}', [HomeController::class, 'kategoridetail']);
 
 Route::get('/cart', [CartController::class, 'index']);
 Route::get('/cart/add/{id}', [CartController::class, 'add']);
