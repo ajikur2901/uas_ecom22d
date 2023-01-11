@@ -15,14 +15,27 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         $listKategori = [
-            'pakaian',
-            'perlengkapan',
-            'aksesoris',
-            'perahu'
+            [
+                'nama' => 'pakaian',
+                'foto' => 'slide4.jpeg'
+            ],
+            [
+                'nama' => 'perlengkapan',
+                'foto' => 'slide1.jpeg'
+            ],
+            [
+                'nama' => 'aksesoris',
+                'foto' => 'slide5.jpeg'
+            ],
+            [
+                'nama' => 'perahu',
+                'foto' => 'slide2.jpeg'
+            ],
         ];
         foreach ($listKategori as $value) {
             $kategori = new Kategori();
-            $kategori->nama = $value;
+            $kategori->nama = $value['nama'];
+            $kategori->foto = $value['foto'];
             $kategori->save();
         }
     }

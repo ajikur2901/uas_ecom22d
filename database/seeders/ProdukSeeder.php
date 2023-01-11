@@ -16,28 +16,39 @@ class ProdukSeeder extends Seeder
     {
         $listProduk = [
             [
-                'nama' => 'pakaian renang',
+                'nama' => 'pelampung',
                 'kategori' => 'pakaian',
                 'jumlah' => rand(1, 100),
                 'harga' => rand(1, 150) * 1000,
+                'foto' => 'slide4.jpeg',
             ],
             [
                 'nama' => 'dayung',
                 'kategori' => 'perlengkapan',
                 'jumlah' => rand(1, 100),
                 'harga' => rand(1, 150) * 1000,
+                'foto' => 'slide1.jpeg',
             ],
             [
-                'nama' => 'gelang',
+                'nama' => 'helm',
+                'kategori' => 'perlengkapan',
+                'jumlah' => rand(1, 100),
+                'harga' => rand(1, 150) * 1000,
+                'foto' => 'slide3.jpeg',
+            ],
+            [
+                'nama' => 'sepatu',
                 'kategori' => 'aksesoris',
                 'jumlah' => rand(1, 100),
                 'harga' => rand(1, 150) * 1000,
+                'foto' => 'slide5.jpeg',
             ],
             [
                 'nama' => 'perahu karet',
                 'kategori' => 'perahu',
                 'jumlah' => rand(1, 100),
                 'harga' => rand(1, 150) * 1000,
+                'foto' => 'slide2.jpeg',
             ]
         ];
         foreach ($listProduk as $value) {
@@ -46,6 +57,7 @@ class ProdukSeeder extends Seeder
             $produk->kategori = $value['kategori'];
             $produk->jumlah = $value['jumlah'];
             $produk->harga = $value['harga'];
+            $produk->foto = $value['foto'];
             $produk->save();
         }
     }
