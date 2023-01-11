@@ -57,7 +57,7 @@
                   <tr>
                   <td>1</td>
                   <td>
-                    <img src="{{ asset('images/slide1.jpg') }}" alt="produk 1" width='150px'>
+                    <img src="{{ asset('images/slide1.jpeg') }}" alt="produk 1" width='150px'>
                     <div class="row mt-2">
                       <div class="col">
                         <input type="file" name="gambar" id="gambar">
@@ -85,7 +85,7 @@
                 <tr>
                   <td>2</td>
                   <td>
-                    <img src="{{ asset('images/slide1.jpg') }}" alt="produk 1" width='150px'>
+                    <img src="{{ asset('images/slide2.jpeg') }}" alt="produk 1" width='150px'>
                     <div class="row mt-2">
                       <div class="col">
                         <input type="file" name="gambar" id="gambar">
@@ -113,7 +113,7 @@
                 <tr>
                   <td>3</td>
                   <td>
-                    <img src="{{ asset('images/slide1.jpg') }}" alt="produk 1" width='150px'>
+                    <img src="{{ asset('images/slide3.jpeg') }}" alt="produk 1" width='150px'>
                     <div class="row mt-2">
                       <div class="col">
                         <input type="file" name="gambar" id="gambar">
@@ -125,6 +125,62 @@
                   </td>
                   <td>Assalam-3</td>
                   <td>Baju Bekas</td>
+                  <td>20 Produk</td>
+                  <td>
+                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
+                      Detail
+                    </a>
+                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
+                      Edit
+                    </a>
+                    <button class="btn btn-sm btn-danger mb-2">
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <img src="{{ asset('images/slide4.jpeg') }}" alt="produk 1" width='150px'>
+                    <div class="row mt-2">
+                      <div class="col">
+                        <input type="file" name="gambar" id="gambar">
+                      </div>
+                      <div class="col-auto">
+                        <button class="btn btn-sm btn-primary">Upload</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Assalam-4</td>
+                  <td>Alat Hiking</td>
+                  <td>20 Produk</td>
+                  <td>
+                    <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
+                      Detail
+                    </a>
+                    <a href="{{ route('produk.edit', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
+                      Edit
+                    </a>
+                    <button class="btn btn-sm btn-danger mb-2">
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <img src="{{ asset('images/slide5.jpeg') }}" alt="produk 1" width='150px'>
+                    <div class="row mt-2">
+                      <div class="col">
+                        <input type="file" name="gambar" id="gambar">
+                      </div>
+                      <div class="col-auto">
+                        <button class="btn btn-sm btn-primary">Upload</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Assalam-4</td>
+                  <td>Alat Hiking</td>
                   <td>20 Produk</td>
                   <td>
                     <a href="{{ route('produk.show', 2) }}" class="btn btn-sm btn-primary mr-2 mb-2">
