@@ -3,6 +3,11 @@
 @section('content')
     <div class="content-wrapper container">
         <div class="card">
+            <div class="card-header">
+              <a href="{{URL::to('admin/kategori')}}" class="btn btn-danger">
+                <span class="bi bi-arrow-left-circle"></span> Kembali
+              </a>
+            </div>
             <div class="card-body">
                 @if ($message = Session::get('error'))
                     <div class="alert alert-warning">

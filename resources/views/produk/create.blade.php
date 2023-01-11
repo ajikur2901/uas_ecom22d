@@ -1,39 +1,80 @@
 @extends('admin_layouts.template')
+
 @section('content')
-<div class="container-fluid">
-  <div class="row">
-    <div class="col col-lg-6 col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Form Produk</h3>
-          <div class="card-tools">
-            <a href="{{ route('produk.index') }}" class="btn btn-sm btn-danger">
-              Tutup
-            </a>
-          </div>
+    <div class="content-wrapper container">
+        <div class="card">
+            <div class="card-header">
+              <a href="{{URL::to('admin/produk')}}" class="btn btn-danger">
+                <span class="bi bi-arrow-left-circle"></span> Kembali
+              </a>
+            </div>
+            <div class="card-body">
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-warning">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                <form method="POST" action="{{ URL::to('admin/produk') }}">
+                    @csrf
+                    
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" placeholder="nama" name="nama" value="{{ old('nama') }}" required autocomplete="nama">
+                        <div class="form-control-icon">
+                            <i class="bi bi-archive"></i>
+                        </div>
+
+                        @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control  @error('kategori') is-invalid @enderror" placeholder="kategori" name="kategori" value="{{ old('kategori') }}" required autocomplete="kategori">
+                        <div class="form-control-icon">
+                            <i class="bi bi-tags-fill"></i>
+                        </div>
+
+                        @error('kategori')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control  @error('jumlah') is-invalid @enderror" placeholder="jumlah" name="jumlah" value="{{ old('jumlah') }}" required autocomplete="jumlah">
+                        <div class="form-control-icon">
+                            <i class="bi bi-123"></i>
+                        </div>
+
+                        @error('jumlah')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control  @error('harga') is-invalid @enderror" placeholder="harga" name="harga" value="{{ old('harga') }}" required autocomplete="harga">
+                        <div class="form-control-icon">
+                            <i class="bi bi-coin"></i>
+                        </div>
+
+                        @error('harga')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                    <button class="btn btn-primary shadow-lg mt-5">Simpan</button>
+                </form>
+            </div>
         </div>
-        <div class="card-body">
-          <form action="#">
-            <div class="form-group">
-              <label for="nama_produk">Nama Produk</label>
-              <input type="text" name="nama_produk" id="nama_produk" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="slug_produk">Slug Produk</label>
-              <input type="text" name="slug_produk" id="slug_produk" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="deskripsi">Deskripsi</label>
-              <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <button type="reset" class="btn btn-warning">Reset</button>
-            </div>
-          </form>
-        </div>
-      </div>
+
     </div>
-  </div>
-</div>
 @endsection

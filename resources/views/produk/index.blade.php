@@ -36,7 +36,7 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ URL::to('admin/kategori/create')}}" class="btn btn-primary">
+                    <a href="{{ URL::to('admin/produk/create')}}" class="btn btn-primary">
                         <span class="bi bi-plus"></span> Tambah
                     </a>
                 </div>
