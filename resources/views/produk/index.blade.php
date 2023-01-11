@@ -29,9 +29,14 @@
             </div>
         </div>
         <section class="section">
-            @if (Session::has('error'))
-                <div class="alert alert-danger">
-                    <i class="bi bi-file-excel"></i> {{Session::get('error')}}
+            @if ($message = Session::get('error'))
+                <div class="alert alert-warning">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
                 </div>
             @endif
             <div class="card">

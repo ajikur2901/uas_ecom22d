@@ -91,9 +91,9 @@ class ProdukController extends Controller
         ]);
 
         try {
-            $kategori = Produk::findOrFail($id);
+            $produk = Produk::findOrFail($id);
             $inputan = $request->all();
-            $kategori->update($inputan);
+            $produk->update($inputan);
             return redirect()->route('produk.index')->with('success', 'Data berhasil diupdate');
         } catch (\Exception $e) {
             return back()->with('error', 'Data gagal diupdate');
