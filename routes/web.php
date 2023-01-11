@@ -44,8 +44,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::patch('/profil/update/{id}', [\App\Http\Controllers\ProfilController::class, 'update'])
         ->name('admin.profil.update')->middleware('role:admin');
 
-    Route::get('/kategori', [\App\Http\Controllers\KategoriController::class, 'index'])
-        ->name('admin')->middleware('role:admin');
+    Route::resource('/kategori', \App\Http\Controllers\KategoriController::class)
+        ->middleware('role:admin');
 
     Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
         ->name('admin')->middleware('role:admin');
@@ -59,8 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/order/{id}/cancel', [\App\Http\Controllers\OrderController::class, 'cancel'])
         ->name('admin.order.cancel')->middleware('role:admin');
 
-    Route::resource('/user', \App\Http\Controllers\UserController::class)
-        ->middleware('role:admin');
+    Route::get('/user', [\App\Http\Controllers\UserController::class, 'index'])
+        ->name('admin')->middleware('role:admin');
 });
 
 Auth::routes();
