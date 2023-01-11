@@ -6,7 +6,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-md-8 col-lg-6">
                 <div class="header">
-                    <h2>Daftar Produk Dan Popular Produk</h3>
+                    <h2>Daftar Produk</h3>
                     <h4>================================</h2>
                 </div>
             </div>
