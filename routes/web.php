@@ -55,10 +55,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //Tambahan route package Produk
     Route::resource('/produk', \App\Http\Controllers\ProdukController::class);
-    // Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
-    //     ->name('admin')->middleware('role:admin');
-    // Route::patch('/produk/create/{id}', [\App\Http\Controllers\ProdukController::class, 'create'])
-    //     ->name('admin.produk.create')->middleware('role:admin');
 
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
         ->name('admin.order.index')->middleware('role:admin');
