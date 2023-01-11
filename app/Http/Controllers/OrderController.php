@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -17,6 +18,18 @@ class OrderController extends Controller
         ];
 
         return view('order.index', $data);
+    }
+
+    public function detail($id)
+    {
+        $data = [
+            'title' => 'Detail Order',
+            'deskripsi' => 'Data Detail Order Customer',
+            'order' => Order::findOrFail($id),
+            'detail' => OrderDetail::where('order_id', $id)->get()
+        ];
+
+        return view('order.detail', $data);
     }
 
     public function kirim($id)

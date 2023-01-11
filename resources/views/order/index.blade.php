@@ -50,6 +50,9 @@
                                 @foreach ($list_order as $order)
                                     <tr>
                                         <td class="text-center">
+                                            <a href="{{ URL::to('admin/order/'.$order['id'].'/detail')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Dikirim">
+                                                <span class="bi bi-cart-fill text-primary"></span>
+                                            </a>
                                             @if ($order->status == "baru")
                                                 <a href="{{ URL::to('admin/order/'.$order['id'].'/kirim')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Dikirim">
                                                     <span class="bi bi-send-fill text-primary"></span>
@@ -62,7 +65,7 @@
                                             @endif
                                             @if ($order->status == "baru")
                                                 <a href="{{ URL::to('admin/order/'.$order['id'].'/cancel')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Dibatalkan">
-                                                    <span class="bi bi-send-fill text-danger"></span>
+                                                    <span class="bi bi-trash-fill text-danger"></span>
                                                 </a>
                                             @endif
                                         </td>

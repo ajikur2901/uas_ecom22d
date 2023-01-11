@@ -58,6 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
         ->name('admin.order.index')->middleware('role:admin');
+    Route::get('/order/{id}/detail', [\App\Http\Controllers\OrderController::class, 'detail'])
+        ->name('admin.order.detail')->middleware('role:admin');
     Route::get('/order/{id}/kirim', [\App\Http\Controllers\OrderController::class, 'kirim'])
         ->name('admin.order.kirim')->middleware('role:admin');
     Route::get('/order/{id}/selesai', [\App\Http\Controllers\OrderController::class, 'selesai'])
