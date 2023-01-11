@@ -53,7 +53,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = array('title' => 'Foto User');
+        return view('user.show', $data);
     }
 
     /**
@@ -64,7 +65,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = array('title' => 'Form Edit User');
+        return view('user.edit', $data);
     }
 
     /**

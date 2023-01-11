@@ -74,12 +74,12 @@
           sehingga bisa dinikmati oleh masyarakat</p>
     </div>
     <div class="col-12 col-lg-6">
-      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting3.jpg')}}" alt="Avatar">
+      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting1.jpg')}}" alt="Avatar">
     </div>
   </div>
   <div class="row mb-5">
     <div class="col-12 col-lg-6">
-      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting1.jpg')}}" alt="Avatar">
+      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting2.jpg')}}" alt="Avatar">
     </div>
     <div class="col-12 col-lg-6">
       <h3>Perkembangan</h3>
@@ -105,7 +105,7 @@
           Bersiaplah untuk mengalami petualangan yang tak akan terlupakan dengan Jogja Adventure Tour</p>
     </div>
     <div class="col-12 col-lg-6">
-      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting2.jpg')}}" alt="Avatar">
+      <img class="img-fluid mb-2" src="{{asset('images/foto-rafting3.jpg')}}" alt="Avatar">
     </div>
   </div>
   <div class="row mb-5">
