@@ -13,7 +13,7 @@
         </div>
         <div class="row">
         <div class="col col-md-12 col-sm-12 mb-4">
-      <h2 class="text-center">Kategori Produk</h2>
+      <h2 class="text-center">Kategori</h2>
     </div>
     <!-- kategori pertama -->
     <div class="col-md-4">
@@ -81,7 +81,7 @@
             </div>
             <div class="col-auto">
               <p>
-                Harga mengikuti halaman produk
+                Rp. 10.000,00
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-auto">
               <p>
-              Harga mengikuti halaman produk
+              Rp. 10.000,00
               </p>
             </div>
           </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="col-auto">
               <p>
-              Harga mengikuti halaman produk
+              Rp. 10.000,00
               </p>
             </div>
           </div>
