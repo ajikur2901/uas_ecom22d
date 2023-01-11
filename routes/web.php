@@ -24,6 +24,7 @@ Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/produk', [HomeController::class, 'produk']);
 Route::get('/produk/{id}', [HomeController::class, 'produkdetail']);
+// Route::get('/produkdetail2', [HomeController::class, 'produkdetail2']);
 Route::get('/kategori', [HomeController::class, 'kategori']);
 Route::get('/kategori/{nama}', [HomeController::class, 'kategoridetail']);
 
@@ -54,10 +55,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //Tambahan route package Produk
     Route::resource('/produk', \App\Http\Controllers\ProdukController::class);
-    // Route::get('/produk', [\App\Http\Controllers\ProdukController::class, 'index'])
-    //     ->name('admin')->middleware('role:admin');
-    // Route::patch('/produk/create/{id}', [\App\Http\Controllers\ProdukController::class, 'create'])
-    //     ->name('admin.produk.create')->middleware('role:admin');
 
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])
         ->name('admin.order.index')->middleware('role:admin');
