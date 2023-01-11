@@ -25,7 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.index');
+        $data = [
+            'kategori' => Kategori::all()->take(4),
+            'produk_baru' => Produk::all()->sortByDesc('created_at')->take(4),
+            'produk_promo' => Produk::all()->sortBy('created_at')->take(4)
+        ];
+        return view('home.index', $data);
     }
 
     public function tentang()
