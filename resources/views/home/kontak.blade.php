@@ -13,6 +13,12 @@
       <div class="accordion-body text-black">
         Hubungi : 085643626150 ( Paulus Endarto )
       </div>
+      <div class="accordion-body text-black">
+        Email : Paulusendarto@gmial.com
+      </div>
+      <div class="accordion-body text-black">
+        Maps : Jl. Laksda Adisucipto Km. 7%2C5 No. 5 Catur Tunggal Depok Sleman Daerah Istimewa Yogyakarta, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281
+      </div>
     </div>
   </div>
 @endsection
