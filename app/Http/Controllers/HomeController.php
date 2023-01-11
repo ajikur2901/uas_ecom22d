@@ -52,4 +52,8 @@ class HomeController extends Controller
         ];
         return view('home.produkdetail', $data);
     }
+    public function produkdetail2()
+    {
+        return view('home.produkdetail2');
+    }
 }
