@@ -110,7 +110,7 @@
                             </div>
                         </div>
 						<!-- Single Product -->
-						<div class="col-md-4">
+						<div class="col-md-3">
                             <div class="card mb-4 shadow-sm">
                                 <a href="{{ URL::to('kategori/satu') }}">
                                 <img src="{{asset('images/slide3.jpeg') }}" alt="foto kategori" class="card-img-top">

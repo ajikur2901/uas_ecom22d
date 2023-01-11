@@ -16,13 +16,21 @@ jalankan
 lalu buka folder dengan vs code
 copy file .env.example dengan nama .env
 
-``php artisan migrate``
+``php artisan migrate:fresh --seed``
 
 ``php artisan optimize:clear``
 
 ``php artisan key:generate``
 
-sampai disini seharusnya sudah bisa berjalan normal, apabila masih ada kendala bisa disampaikan di group
+sampai disini seharusnya sudah bisa berjalan normal, 
+
+apabila masih ada kendala bisa disampaikan di group
+
+default auth :
+
+admin@student.mercubuana-yogya.ac.id pass: 123
+
+user@student.mercubuana-yogya.ac.id pass: 123
 
 command untuk menambahkan code yang terdapat perubahan
 
