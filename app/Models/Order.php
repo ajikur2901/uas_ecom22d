@@ -26,4 +26,19 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function getLastYear()
+    {
+        $data = [];
+        for ($i = 12; $i >= 0; $i--) {
+            $s = date('Y-m-01', strtotime(date('Y-m-01') . " - {$i} months"));
+            $f = date('Y-m-t', strtotime(date('Y-m-01') . " - {$i} months"));
+            $bulan = date('M Y', strtotime(date('Y-m-01') . " - {$i} months"));
+            $data[] = [
+                'nama' => $bulan,
+                'value' => self::whereBetween('created_at', [$s, $f])->sum('total')
+            ];
+        }
+        return $data;
+    }
 }
