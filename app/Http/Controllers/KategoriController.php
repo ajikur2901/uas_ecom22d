@@ -17,7 +17,7 @@ class KategoriController extends Controller
 
         return view('kategori.index', $data);
     }
-      /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -36,7 +36,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required'
+        ]);
+        $inputan = $request->all();
+        try {
+            Kategori::create($inputan);
+            return redirect()->route('kategori.index')->with('success', 'Data berhasil disimpan');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal ditambahkan');
+        }
     }
 
     /**
@@ -58,7 +67,10 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $data = array('title' => 'Form Edit Kategori');
+        $data = [
+            'title' => 'Form Edit Kategori',
+            'kategori' => Kategori::findOrFail($id)
+        ];
         return view('kategori.edit', $data);
     }
 
@@ -71,7 +83,17 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+        ]);
+        try {
+            $kategori = Kategori::findOrFail($id);
+            $inputan = $request->all();
+            $kategori->update($inputan);
+            return redirect()->route('kategori.index')->with('success', 'Data berhasil diupdate');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal diupdate');
+        }
     }
 
     /**
@@ -82,6 +104,12 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $kategori = Kategori::findOrFail($id);
+            $kategori->delete();
+            return back()->with('success', 'Data berhasil dihapus');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal dihapus');
+        }
     }
 }

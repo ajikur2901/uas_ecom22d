@@ -14,11 +14,12 @@
                         <p>{{ $message }}</p>
                     </div>
                 @endif
-                <form method="POST" action="{{ URL::to('admin/kategori') }}">
+                <form method="POST" action="{{ URL::to('admin/kategori/'.$kategori->id) }}">
+                    @method('PATCH')
                     @csrf
                     
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" placeholder="nama" name="nama" value="{{ old('nama') }}" required autocomplete="nama">
+                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" placeholder="nama" name="nama" value="{{ $kategori->nama }}" required autocomplete="nama">
                         <div class="form-control-icon">
                             <i class="bi bi-tags-fill"></i>
                         </div>

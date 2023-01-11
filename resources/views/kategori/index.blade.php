@@ -34,6 +34,11 @@
                     <i class="bi bi-file-excel"></i> {{Session::get('error')}}
                 </div>
             @endif
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    <i class="bi bi-check"></i> {{Session::get('success')}}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">
                     <a href="{{ URL::to('admin/kategori/create')}}" class="btn btn-primary">

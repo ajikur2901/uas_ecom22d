@@ -18,7 +18,8 @@ class UserController extends Controller
         return view('user.index', $data);
     }
 
-    public function setting() {
+    public function setting()
+    {
         $data = array('title' => 'Setting Profil');
         return view('user.setting', $data);
     }
@@ -42,7 +43,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -89,6 +89,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+            return back()->with('success', 'Data berhasil dihapus');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal dihapus');
+        }
     }
 }

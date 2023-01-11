@@ -89,7 +89,7 @@
                             </span>
                         @enderror
                     </div>
-                    <button class="btn btn-primary btn-lg shadow-lg mt-5">Simpan</button>
+                    <button class="btn btn-primary shadow-lg mt-5">Simpan</button>
                 </form>
             </div>
         </div>

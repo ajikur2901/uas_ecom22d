@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::patch('/profil/update/{id}', [\App\Http\Controllers\ProfilController::class, 'update'])
         ->name('admin.profil.update')->middleware('role:admin');
 
-    Route::resource('/kategori', \App\Http\Controllers\KategoriController::class)
+    Route::resource('kategori', \App\Http\Controllers\KategoriController::class)
         ->middleware('role:admin');
 
     //Tambahan route package Produk

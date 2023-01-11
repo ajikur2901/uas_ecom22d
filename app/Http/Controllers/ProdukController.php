@@ -31,9 +31,21 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function store(Request $request)
+    public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'kategori' => 'required',
+            'jumlah' => 'required',
+            'harga' => 'required'
+        ]);
+        $inputan = $request->all();
+        try {
+            Produk::create($inputan);
+            return redirect()->route('produk.index')->with('success', 'Data berhasil disimpan');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal ditambahkan');
+        }
     }
 
     /**
@@ -56,7 +68,10 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        $data = array('title' => 'Form Edit Produk');
+        $data = [
+            'title' => 'Form Edit Produk',
+            'produk' => Produk::findOrFail($id)
+        ];
         return view('produk.edit', $data);
     }
     /**
@@ -68,7 +83,21 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'kategori' => 'required',
+            'jumlah' => 'required',
+            'harga' => 'required'
+        ]);
+
+        try {
+            $kategori = Produk::findOrFail($id);
+            $inputan = $request->all();
+            $kategori->update($inputan);
+            return redirect()->route('produk.index')->with('success', 'Data berhasil diupdate');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal diupdate');
+        }
     }
 
     /**
@@ -79,6 +108,12 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $Produk = Produk::findOrFail($id);
+            $Produk->delete();
+            return back()->with('success', 'Data berhasil dihapus');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Data gagal dihapus');
+        }
     }
 }
