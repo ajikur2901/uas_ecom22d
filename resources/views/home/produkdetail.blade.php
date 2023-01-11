@@ -28,19 +28,20 @@
 
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                 <h2 class="name">
-                    ALAT DAYUNG ANEKA WARNA
-                    <small>TOKO <a href="javascript:void(0);">PAK PAUL</a></small>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-muted"></i>
-                    <span class="fa fa-2x"><h5>(99) Votes</h5></span>
-                    <a href="javascript:void(0);">99 customer reviews</a>
+                    {{$produk->nama}}
                 </h2>
+                <br>
+                <i class="fa fa-star fa-2x text-primary"></i>
+                <i class="fa fa-star fa-2x text-primary"></i>
+                <i class="fa fa-star fa-2x text-primary"></i>
+                <i class="fa fa-star fa-2x text-primary"></i>
+                <i class="fa fa-star fa-2x text-muted"></i>
+                <br>
+                <span class="fa fa-2x"><h5>(99) Votes</h5></span>
+                <a href="javascript:void(0);">99 customer reviews</a>
                 <hr />
                 <h3 class="price-container">
-                    $129.54
+                    Rp. {{number_format($produk->harga,2,',','.')}}
                     <small>*includes tax</small>
                 </h3>
                 <div class="certified">
@@ -158,13 +159,7 @@
                 <hr />
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="javascript:void(0);" class="btn btn-success btn-lg">Add to cart ($129.54)</a>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6">
-                        <div class="btn-group pull-right">
-                            <button class="btn btn-white btn-default"><i class="fa fa-star"></i> Add to wishlist</button>
-                            <button class="btn btn-white btn-default"><i class="fa fa-envelope"></i> Contact Seller</button>
-                        </div>
+                        <a href="{{URL::to('cart/add/'.$produk->id)}}" class="btn btn-success btn-lg">Add to cart</a>
                     </div>
                 </div>
             </div>

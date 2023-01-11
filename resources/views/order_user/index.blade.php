@@ -40,6 +40,8 @@
                     </div>
                 </div>
             @endforeach
+        @else 
+            <h3 class="text-center">Belum Ada Order</h3>
         @endif
     </div>
 @endsection

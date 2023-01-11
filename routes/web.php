@@ -23,11 +23,12 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/produk', [HomeController::class, 'produk']);
-Route::get('/produkdetail', [HomeController::class, 'produkdetail']);
+Route::get('/produk/{id}', [HomeController::class, 'produkdetail']);
 
 Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart/add/{id}', [CartController::class, 'add']);
 Route::get('/cart/checkout', [CartController::class, 'checkout']);
-Route::delete('/cart/delete/{id}', [CartController::class, 'delete']);
+Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
 
 Route::get('/order', [OrderUserController::class, 'index']);
 

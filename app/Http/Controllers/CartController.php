@@ -60,8 +60,33 @@ class CartController extends Controller
         }
     }
 
+    public function add($id)
+    {
+        if (!Auth::check()) {
+            return redirect('login');
+        }
+        $cart = [
+            'user_id' => Auth::user()->id,
+            'produk_id' => $id,
+            'jumlah' => 1
+        ];
+        try {
+            Cart::create($cart);
+        } catch (\Exception $e) {
+            return back()->with('error', 'Opps, Smething Wrong ' . $e->getMessage());
+        }
+        return redirect('cart');
+    }
+
     public function delete($id)
     {
-        return back();
+        try {
+            $cart = Cart::findOrFail($id);
+            $cart->delete();
+        } catch (\Exception $e) {
+            return redirect('cart')->with('error', 'Opps, Smething Wrong ' . $e->getMessage());
+        }
+
+        return redirect('cart');
     }
 }

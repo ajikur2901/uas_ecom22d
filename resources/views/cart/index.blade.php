@@ -15,7 +15,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <img src="" alt="{{$cart->produk->nama}}">
+                                        <img class="img-fluid" src="{{$cart->produk->foto ? asset('images/slide1.jpg') : asset('images/default-img.png')}}" alt="{{$cart->produk->nama}}">
                                     </div>
                                     <div class="col">
                                         <h5>{{$cart->produk->nama}}</h5>
@@ -27,7 +27,7 @@
                                         <h5>{{number_format($cart->produk->harga * $cart->jumlah,2,',','.')}}</h5>
                                     </div>
                                     <div class="col-lg-1">
-                                        <a href="{{ URL::to('')}}" class="">
+                                        <a href="{{ URL::to('cart/delete/'.$cart->id)}}" class="">
                                             <span class="bi bi-trash h2 text-danger"></span>
                                         </a>
                                     </div>
