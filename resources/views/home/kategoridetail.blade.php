@@ -18,7 +18,7 @@
                     <div class="col-md-3">
                         <div class="card mb-4 shadow-sm">
                             <a href="{{URL::to('/produk/'.$item->id)}}">
-                                <img src="{{ $item->foto ? asset('images/slide1.jpeg') : asset('images/default-img.png') }}" alt="{{$item->nama}}" class="card-img-top">
+                                <img src="{{ $item->foto ? asset('images/'.$item->foto) : asset('images/default-img.png') }}" alt="{{$item->nama}}" class="card-img-top">
                             </a>
                             <div class="card-body">
                                 <a href="{{ URL::to('kategori/'.$item->kategori) }}" class="text-decoration-none">

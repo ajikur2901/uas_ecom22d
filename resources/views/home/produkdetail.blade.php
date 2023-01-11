@@ -17,7 +17,7 @@
                         <div class="carousel-inner">
                             <!-- Slide 1 -->
                             <div class="item active">
-                                <img src="{{asset('images/slide1.jpeg') }}" class="img-responsive" alt="" />
+                                <img src="{{$produk->foto ? asset('images/'.$produk->foto)  : asset('images/default-img.png')}}" class="img-responsive" alt="" />
                             </div>
                         </div>
                         <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
